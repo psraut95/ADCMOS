@@ -1,0 +1,26 @@
+.include ibm_90nm.txt
+
+vdd 2 0 0.9
+vin 1 0 0.9
+
+
+mn 3 1 2 2 cmosp l=90n w=90n
+mn1 3 1 0 0 cmosn l=90n w=90n
+
+mn2 4 1 2 2 cmosp l=90n w=180n
+mn3 4 1 0 0 cmosn l=90n w=90n
+
+mn4 5 1 2 2 cmosp l=90n w=90n
+mn5 5 1 0 0 cmosn l=90n w=180n
+
+
+mn6 6 1 2 2 cmosp l=90n w=360n
+mn7 6 1 0 0 cmosn l=90n w=360n
+
+
+.control
+run
+dc vin 0 0.9 10m 
+plot  v(3) v(4) v(5) v(6)
+.endc
+.end

@@ -1,0 +1,26 @@
+.include ibm_90nm.txt
+
+.subckt inv 1 3 2 0
+c1 3 0 10pf
+MN 3 1 0 0 cmosn l=90n w=180n
+MN1 3 1 2 2 cmosp l=90n w=180n
+.ends
+
+vdd 2 0 2
+xinv1 4 5 2 0 inv
+xinv2 5 6 2 0 inv
+xinv3 6 7 2 0 inv
+xinv4 7 8 2 0 inv
+xinv5 8 9 2 0 inv
+xinv6 9 10 2 0 inv
+xinv7 10 11 2 0 inv
+xinv8 11 12 2 0 inv
+xinv9 12 13 2 0 inv
+xinv10 13 14 2 0 inv
+xinv11 14 4 2 0 inv
+.control
+run
+tran 1n 10u
+plot v(14)
+.endc
+.end

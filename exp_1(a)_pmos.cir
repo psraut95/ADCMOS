@@ -1,0 +1,12 @@
+.include ibm_90nm.txt
+
+vds 0 2 0.9
+vgs 1 2 0.9
+MN 0 1 2 2 cmosp l=90n w=180n
+
+.control
+run
+dc vgs 0 -0.9 -0.01 vds 0 -0.9 -0.1 
+plot -i(vds)
+.endc
+.end

@@ -1,0 +1,12 @@
+.include ibm_90nm.txt
+
+vdd 2 0 1.8
+vgs 1 0 0.9
+MN 2 1 0 0 cmosn l=90n w=180n
+
+.control
+run
+dc vgs 0 2 10m 
+plot sqrt(-i(Vdd))
+.endc
+.end

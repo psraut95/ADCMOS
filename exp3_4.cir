@@ -1,0 +1,19 @@
+.include ibm_90nm.txt
+
+vdd 2 0 0.9
+vin 1 0 PULSE(0 0.9 0 10uS 10uS 40uS 100uS)
+vref 4 0 0.45
+vref1 5 0 0.09
+vref2 6 0 0.81
+c1 3 0 50pf
+
+
+mn 3 1 2 2 cmosp l=90n w=180n
+mn1 3 1 0 0 cmosn l=90n w=180n
+
+.control
+run
+tran 100n 100u 
+plot v(3) v(1) v(4) v(5) v(6)
+.endc
+.end

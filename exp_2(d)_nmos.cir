@@ -1,0 +1,12 @@
+.include ibm_90nm.txt
+
+vdd 2 0 0.9
+vgs 1 2 0.9
+MN 0 1 2 2 cmosp l=90n w=180n
+
+.control
+run
+dc vgs -2 0 10m
+plot deriv(deriv(-i(Vdd)))
+.endc
+.end

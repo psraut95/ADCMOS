@@ -1,0 +1,29 @@
+.cir
+.include ibm_90nm.txt
+
+vin 1 0 pulse(0 0.9 0 0.4us 0.4us 1us 2.8us)
+vdd 2 0 0.9
+c1 vout 0 1pf
+c2 vout1 0 1pf
+c3 vout2 0 1pf
+
+vref1 ref 0 0.45 
+vref2 a 0 0.675
+vref3 b 0 0.225
+
+mn vout 1 0 0 cmosn l=90n w=180n
+mn2 vout 1 2 2 cmosp l=90n w=180n
+
+mn3 vout1 vout 0 0 cmosn l=90n w=180n
+mn4 vout1 vout 2 2 cmosp l=90n w=180n
+
+mn5 vout2 vout1 0 0 cmosn l=90n w=180n
+mn6 vout2 vout1 2 2 cmosp l=90n w=180n
+
+.control
+run
+tran 0.1n 6u 
+*pulse(0 2 5ps 10ps 10ps 200ps 400ps)
+plot vout vout1 vout2 v(1) v(ref) v(a) v(b)
+.endc
+.end

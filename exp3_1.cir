@@ -1,0 +1,15 @@
+.include ibm_90nm.txt
+
+vdd 2 0 0.9
+vin 1 0 0.9
+vref 4 0 -1
+
+mn 3 1 2 2 cmosp l=90n w=180n
+mn1 3 1 0 0 cmosn l=90n w=180n
+
+.control
+run
+dc vin 0 0.9 10m
+plot v(3) v(1) deriv(v(3)) v(4)
+.endc
+.end
